@@ -163,25 +163,36 @@ a:focus-visible {
 
 .site-header {
   position: sticky;
-  top: 0;
+  top: 0.9rem;
   z-index: 40;
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(0px);
-  transition: background-color 220ms ease, backdrop-filter 220ms ease, border-color 220ms ease;
-  border-bottom: 1px solid transparent;
-}
-
-.site-header.is-scrolled {
-  backdrop-filter: blur(16px);
-  border-color: var(--brand-line);
+  display: flex;
+  justify-content: center;
+  padding-inline: 1rem;
+  background: transparent;
 }
 
 .header-shell {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
+  display: inline-grid;
+  grid-template-columns: auto auto auto;
   align-items: center;
   gap: 1.5rem;
-  min-height: var(--header-height);
+  min-height: calc(var(--header-height) - 0.85rem);
+  width: fit-content;
+  max-width: min(calc(100vw - 2rem), 1180px);
+  margin: 0 auto;
+  padding: 0.75rem 1rem 0.75rem 1.35rem;
+  border: 1px solid rgba(234, 216, 227, 0.9);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(0px);
+  box-shadow: 0 18px 48px rgba(26, 16, 20, 0.08);
+  transition: background-color 220ms ease, backdrop-filter 220ms ease, border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
+}
+
+.site-header.is-scrolled .header-shell {
+  backdrop-filter: blur(16px);
+  border-color: rgba(234, 216, 227, 1);
+  box-shadow: 0 20px 56px rgba(26, 16, 20, 0.12);
 }
 
 .brand-mark {
@@ -206,8 +217,10 @@ a:focus-visible {
 .main-nav {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 1.5rem;
   font-size: 0.95rem;
+  padding-inline: 0.35rem;
 }
 
 .main-nav a {
@@ -1149,7 +1162,9 @@ html.js .reveal-group > *.is-visible {
   }
 
   .header-shell {
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: auto auto;
+    width: min(100%, 42rem);
+    padding-inline: 1rem;
   }
 
   .hero-copy,
@@ -1226,13 +1241,73 @@ html.js .reveal-group > *.is-visible {
   }
 
   .treatment-item {
-    padding-left: 0;
+    grid-template-columns: 3.15rem minmax(0, 1fr);
+    grid-template-areas:
+      "icon title"
+      "icon body"
+      "icon tag"
+      "icon feel";
+    gap: 0.35rem 0.9rem;
+    align-items: start;
+    padding: 1.2rem 0;
+  }
+
+  .treatment-number {
+    display: none;
+  }
+
+  .treatment-icon {
+    grid-area: icon;
+    width: 2.85rem;
+    height: 2.85rem;
+    margin-top: 0.15rem;
+  }
+
+  .treatment-item h3 {
+    grid-area: title;
+    font-size: 1.35rem;
+    line-height: 1.02;
+  }
+
+  .treatment-item p {
+    grid-area: body;
+    margin-top: 0.1rem;
+    font-size: 0.96rem;
+    line-height: 1.45;
   }
 
   .hero-actions,
   .cta-actions {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .treatment-tag,
+  .treatment-feel {
+    grid-column: auto;
+    justify-self: start;
+    text-align: left;
+    max-width: none;
+  }
+
+  .treatment-tag {
+    grid-area: tag;
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    margin-top: 0.15rem;
+    padding: 0.3rem 0.72rem;
+    border-radius: 999px;
+    background: rgba(83, 9, 70, 0.08);
+    font-size: 0.8rem;
+    line-height: 1;
+  }
+
+  .treatment-feel {
+    grid-area: feel;
+    margin-top: 0.05rem;
+    font-size: 0.9rem;
+    line-height: 1.4;
   }
 
   .button,
