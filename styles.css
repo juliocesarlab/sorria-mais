@@ -172,6 +172,8 @@ a:focus-visible {
 }
 
 .header-shell {
+  position: relative;
+  z-index: 2;
   display: inline-grid;
   grid-template-columns: auto auto auto;
   align-items: center;
@@ -1156,15 +1158,49 @@ html.js .reveal-group > *.is-visible {
     display: none;
   }
 
+  .site-header {
+    top: 0.75rem;
+    padding-inline: 0.625rem;
+  }
+
   .menu-toggle {
     display: inline-flex;
     align-items: center;
+    justify-self: end;
   }
 
   .header-shell {
-    grid-template-columns: auto auto;
-    width: min(100%, 42rem);
-    padding-inline: 1rem;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.75rem;
+    width: 100%;
+    max-width: 100%;
+    min-height: 4.5rem;
+    padding: 0.65rem 0.8rem 0.65rem 1rem;
+  }
+
+  .brand-mark {
+    min-width: 0;
+  }
+
+  .mobile-menu {
+    inset: 0;
+    padding: 7.25rem 1.25rem 2rem;
+    place-items: start center;
+    z-index: 1;
+  }
+
+  .mobile-nav {
+    width: min(100%, 30rem);
+    padding: 1.25rem;
+    border: 1px solid rgba(234, 216, 227, 0.9);
+    border-radius: 2rem;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 18px 56px rgba(26, 16, 20, 0.08);
+  }
+
+  .mobile-nav .button {
+    width: 100%;
   }
 
   .hero-copy,
