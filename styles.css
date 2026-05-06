@@ -545,9 +545,12 @@ body.menu-open .mobile-menu {
 .treatment-item {
   position: relative;
   display: grid;
-  grid-template-columns: 4rem 3rem minmax(0, 1.5fr) minmax(0, 0.95fr) auto;
-  gap: 1rem;
-  align-items: center;
+  grid-template-columns: 4rem 3rem minmax(0, 1.65fr) minmax(0, 1.05fr) auto;
+  grid-template-areas:
+    "number icon title body tag"
+    "number icon title feel tag";
+  gap: 0.4rem 1rem;
+  align-items: start;
   padding: 1.45rem 0;
   border-bottom: 1px solid var(--brand-line);
 }
@@ -574,7 +577,13 @@ body.menu-open .mobile-menu {
   font-size: 0.9rem;
 }
 
+.treatment-number {
+  grid-area: number;
+  padding-top: 0.45rem;
+}
+
 .treatment-icon {
+  grid-area: icon;
   display: inline-flex;
   width: 2.5rem;
   height: 2.5rem;
@@ -592,26 +601,35 @@ body.menu-open .mobile-menu {
 }
 
 .treatment-item h3 {
+  grid-area: title;
   margin: 0;
+  align-self: center;
   font-size: clamp(1.6rem, 3vw, 3rem);
   line-height: 1;
   letter-spacing: -0.04em;
 }
 
 .treatment-item p {
+  grid-area: body;
   margin: 0;
   color: var(--muted);
+  padding-top: 0.2rem;
 }
 
 .treatment-tag {
+  grid-area: tag;
   color: var(--brand);
   font-weight: 700;
+  align-self: center;
+  justify-self: end;
+  text-align: right;
 }
 
 .treatment-feel {
-  justify-self: end;
-  max-width: 14rem;
-  text-align: right;
+  grid-area: feel;
+  max-width: 26rem;
+  margin-top: -0.1rem;
+  line-height: 1.45;
 }
 
 .patient-journey {
