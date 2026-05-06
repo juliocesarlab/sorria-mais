@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title>Sorria Mais</title>
+  <rect width="128" height="128" rx="28" fill="#530946"/>
+  <path d="M33 77c9 9 20 14 31 14s22-5 31-14" fill="none" stroke="#f6eef3" stroke-linecap="round" stroke-width="8"/>
+  <path d="M43 43c5-6 13-10 21-10 8 0 16 4 21 10" fill="none" stroke="#f6eef3" stroke-linecap="round" stroke-width="8"/>
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 720">
+  <rect width="540" height="720" fill="#f6eef3"/>
+  <rect x="48" y="48" width="444" height="624" rx="28" fill="#ffffff" stroke="#ead8e3"/>
+  <circle cx="270" cy="250" r="96" fill="#530946" opacity="0.12"/>
+  <path d="M164 500c22-76 58-114 106-114s84 38 106 114" fill="none" stroke="#530946" opacity="0.22" stroke-width="18" stroke-linecap="round"/>
+  <text x="270" y="610" fill="#530946" font-family="Nunito, Arial, sans-serif" font-size="34" font-weight="700" text-anchor="middle">Placeholder retrato</text>
+</svg>

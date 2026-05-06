@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620">
+  <rect width="900" height="620" fill="#f6eef3"/>
+  <rect x="70" y="70" width="760" height="480" rx="34" fill="#ffffff" stroke="#ead8e3"/>
+  <path d="M130 446c96-106 197-160 302-160 96 0 196 44 302 132" fill="none" stroke="#530946" opacity="0.18" stroke-width="18" stroke-linecap="round"/>
+  <text x="450" y="300" fill="#530946" font-family="Nunito, Arial, sans-serif" font-size="42" font-weight="700" text-anchor="middle">Placeholder horizontal</text>
+  <text x="450" y="346" fill="#6b6168" font-family="Nunito, Arial, sans-serif" font-size="24" text-anchor="middle">Substituir por imagem real</text>
+</svg>

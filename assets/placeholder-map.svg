@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 620">
+  <rect width="840" height="620" fill="#f6eef3"/>
+  <path d="M120 170l170-60 160 78 180-82 90 52v312l-170 56-166-72-182 74-102-54z" fill="#ffffff" stroke="#ead8e3" stroke-width="10"/>
+  <circle cx="438" cy="310" r="44" fill="#530946"/>
+  <path d="M438 386c-42-52-62-89-62-116 0-35 28-62 62-62s62 27 62 62c0 27-20 64-62 116z" fill="#530946" opacity="0.22"/>
+  <text x="420" y="560" fill="#530946" font-family="Nunito, Arial, sans-serif" font-size="34" font-weight="700" text-anchor="middle">Mapa / fachada placeholder</text>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 920">
+  <rect width="760" height="920" fill="#f6eef3"/>
+  <rect x="64" y="64" width="632" height="792" rx="40" fill="#ffffff" stroke="#ead8e3"/>
+  <circle cx="380" cy="308" r="126" fill="#530946" opacity="0.12"/>
+  <path d="M246 610c36-92 97-138 182-138s146 46 182 138" fill="none" stroke="#530946" stroke-width="20" opacity="0.22" stroke-linecap="round"/>
+  <text x="380" y="766" fill="#530946" font-family="Nunito, Arial, sans-serif" font-size="42" font-weight="700" text-anchor="middle">Hero placeholder</text>
+  <text x="380" y="812" fill="#6b6168" font-family="Nunito, Arial, sans-serif" font-size="24" text-anchor="middle">Substituir por imagem real da clínica</text>
+</svg>

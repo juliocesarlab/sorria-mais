@@ -1,0 +1,119 @@
+O diretório lp/ está vazio. Vamos construir do zero um site institucional premium para a clínica odontológica Sorria Mais, com presença em Uberaba e Uberlândia, posicionada como referência em implantes dentários e facetas em resina.
+
+A entrega precisa parecer trabalho de agência high-end (não template, não IA genérica, não Lovable, não "startup"). Stack: HTML + CSS + JS vanilla, sem React/Next/Tailwind/Bootstrap. Bibliotecas leves de animação são permitidas se realmente agregarem (GSAP + ScrollTrigger e Lenis para scroll suave).
+
+Identidade visual:
+
+Fundo branco, primária #530946, muito espaço em branco, tipografia editorial sofisticada, linhas finas e divisórias sutis.
+Sem gradientes pesados, sem sombras fortes, sem grids repetitivos de "4 cards iguais".
+Prioridades técnicas: SEO local impecável (Schema Dentist/LocalBusiness com 2 unidades), HTML semântico, performance (Lighthouse alto), JS mínimo, conteúdo indexável imediatamente.
+
+Arquivos a criar
+lp/
+├── index.html          ← markup semântico completo + JSON-LD
+├── styles.css          ← design system + todas as seções
+├── script.js           ← header scroll, reveals, carrossel, menu mobile
+├── robots.txt          ← preparado para indexação
+├── sitemap.xml         ← estrutura inicial
+└── assets/
+    ├── og-image.jpg    ← placeholder (referenciado no Open Graph)
+    └── favicon.svg     ← placeholder
+Imagens (hero, transformações, estrutura, especialistas) ficam como placeholders semânticos com <picture>/<img loading="lazy" alt="…"> apontando para assets/ — o usuário substitui depois.
+
+Design system (em styles.css)
+Tokens (CSS custom properties no :root):
+
+Cores: --ink: #1a1014, --brand: #530946, --brand-soft: #f6eef3, --brand-line: #ead8e3, --bg: #ffffff, --muted: #6b6168.
+Tipografia: sans arredondada e moderna para títulos e corpo — opção principal Nunito (ou alternativa Quicksand / Mulish) via Google Fonts display=swap com preconnect. Forma orgânica e amigável das letras (terminações suaves, "o" e "a" arredondados) traz acolhimento sem perder sofisticação. Apenas dois pesos (ex: 400 e 700) para reduzir payload. Nada de serifa editorial nem fonte manuscrita.
+Escala tipográfica fluida com clamp() (h1 ~ clamp(2.6rem, 6vw, 5.5rem)).
+Espaçamento: sistema de 8px, com seções respirando (padding-block: clamp(6rem, 12vw, 10rem)).
+Linhas/divisórias: 1px solid var(--brand-line) para detalhes editoriais.
+Princípios de layout:
+
+Grid editorial assimétrico (CSS Grid com grid-template-columns de 12 colunas, mas usando spans irregulares).
+Mistura de alinhamento: títulos à esquerda, números à direita, imagens fora da grade quebrando margem.
+Sem cards-com-sombra. Profundidade vem de tipografia, espaço e linhas finas.
+Estrutura do index.html
+<head> com:
+
+<title> e meta description otimizados para "implantes dentários e facetas em resina em Uberaba e Uberlândia".
+Open Graph completo + Twitter Card.
+link rel="canonical".
+JSON-LD @graph com dois Dentist (subtipo de LocalBusiness), cada um com address, geo, telephone, sameAs (Instagram), openingHoursSpecification, areaServed. Um Organization pai amarrando ambos.
+preconnect para Google Fonts e (se usados) GSAP/Lenis CDN.
+Apenas um <h1> (na hero).
+Seções (todas com <section aria-labelledby="…">):
+
+Header — <header> fixo, fino. Logo textual "Sorria Mais" em sans arredondada (peso bold), menu inline (Início, Tratamentos, Unidades, Transformações, Estrutura, Especialistas, Contato), CTA "Agendar avaliação". No scroll: backdrop branco com blur sutil + linha 1px inferior aparecendo. Mobile: menu fullscreen com transição editorial (não hambúrguer animado padrão).
+
+Hero — Layout editorial assimétrico (não centralizado). H1 grande em sans arredondada (peso bold): "Referência em implantes dentários e facetas em resina em Uberaba e Uberlândia." Subtítulo curto, dois CTAs (WhatsApp Uberaba primário, "Conhecer unidades" secundário em link sublinhado), microprovas em linha fina (ex: "+15 anos · 2 unidades · Avaliação 5,0 no Google"). Imagem premium em coluna lateral, "sangrando" para fora da margem direita.
+
+Unidades — Composição em duas linhas alternadas (zig-zag editorial), não dois cards iguais:
+
+Uberaba à esquerda com bloco de texto + endereço + WhatsApp 34 3352-0661 + Instagram @sorriamaisuberaba + CTA "Agendar em Uberaba"; à direita imagem/mapa estático (placeholder).
+Uberlândia inverte: imagem à esquerda, texto à direita, com placeholder editável de telefone e Instagram @sorriamais.uberlandia.
+Numeração editorial ("01 — Uberaba", "02 — Uberlândia") em tipografia fina.
+Posicionamento — Bloco editorial com manchete ("Por que somos referência"), parágrafos curtos e números em sans arredondada (peso bold) grande (ex: "+10.000 sorrisos transformados"), separados por linhas finas. Sem 4 cards iguais.
+
+Tratamentos — Lista editorial vertical com tipografia forte:
+
+Cada tratamento ocupa uma linha grande com nome em sans arredondada (peso bold) enorme à esquerda, descrição curta + tag à direita, separados por divisória 1px.
+Hover: revelação sutil (linha se expande, número aparece).
+Tratamentos: Implantes dentários, Facetas em resina, Clareamento dental, Lentes de contato dental, Ortodontia, Clínica geral, Avaliação estética do sorriso.
+Experiência do paciente — Timeline horizontal premium (5 etapas: avaliação inicial, diagnóstico, planejamento, execução, acompanhamento) com linha guia animada via ScrollTrigger.
+
+Depoimentos (introdução) — Título "Quem passa pela Sorria Mais sente a diferença no atendimento" + subtítulo. Layout editorial.
+
+Carrossel premium de depoimentos — Implementação custom (sem biblioteca):
+
+Track horizontal com transform: translateX() animado via requestAnimationFrame (movimento contínuo lento).
+Mask CSS lateral: mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent) para fade nas bordas.
+Pausa ao hover (mousemove/touch); swipe nativo no mobile via touchstart/touchmove.
+Sem setas chamativas, sem bolinhas. Apenas o movimento.
+8 depoimentos reais já fornecidos (Lohana Victor, Joyce Cintra, Jessica Moreira, Kauany Alves Ferreira, Jenniffer Lima, Neide Candido, Leonardo Oliveira, João Custódio) duplicados para loop infinito.
+Tipografia: aspas decorativas em sans arredondada (peso bold), texto em sans, nome em caixa-alta espaçada.
+Transformações — Galeria editorial antes/depois com placeholders (<figure> com legenda discreta). Layout assimétrico, alguns retratos quebrando a grade.
+
+Estrutura da clínica — Galeria editorial com 4–5 imagens grandes em composição irregular (uma cobre 8 colunas, outra 4, alternando alturas). Texto curto sobre biossegurança/tecnologia em coluna estreita.
+
+Especialistas — Lista premium: foto vertical em proporção retrato, nome em sans arredondada (peso bold), especialidade + CRO em linha fina abaixo. Placeholders. Sem grid 3×3 genérico — usar 2 colunas com offsets verticais alternados.
+
+CTA final — Bloco fullwidth com fundo --brand-soft, manchete grande "Sua transformação começa com uma avaliação", dois botões lado a lado: "Agendar em Uberaba" (link wa.me) e "Agendar em Uberlândia" (placeholder #).
+
+Footer — 4 colunas: marca + tagline curta; Unidade Uberaba (endereço, telefone, Instagram, horários); Unidade Uberlândia (placeholder telefone, Instagram, horários); Links internos. Linha inferior com copyright e CRO.
+
+Animações (script.js)
+Lenis para scroll suave global (instanciar com lerp: 0.1, smoothWheel: true).
+GSAP + ScrollTrigger para reveals: títulos entram com y: 40, opacity: 0 → 1, stagger sutil em parágrafos. Discreto e curto (duração 0.8s, ease expo.out).
+Header: classe .is-scrolled adicionada após 24px de scroll, transição CSS.
+Carrossel: rAF custom (não GSAP) para performance.
+Menu mobile: classe .menu-open no <body>, transição via CSS.
+prefers-reduced-motion: reduce desabilita Lenis e reveals.
+IntersectionObserver como fallback se GSAP não carregar (degradação graceful).
+SEO técnico
+Apenas um H1 (hero). Cada <section> usa <h2>, subseções <h3>.
+meta description ~155 caracteres focada em conversão local.
+JSON-LD validado mentalmente contra schema.org/Dentist.
+alt descritivo em todas as imagens (ex: "Sala de atendimento da Sorria Mais Uberaba").
+loading="lazy" em tudo abaixo da hero; hero usa fetchpriority="high".
+robots.txt permitindo tudo + apontando sitemap.
+sitemap.xml listando home + âncoras principais.
+Nenhum keyword stuffing — palavras-chave aparecem naturalmente em h2, parágrafos e schema.
+Fontes via Google Fonts com display=swap + preconnect (sem bloqueio de render).
+CSS inline crítico opcional (avaliar no fim) — provavelmente não necessário se mantivermos styles.css enxuto.
+Verificação
+Abrir index.html no navegador (file:// ou python -m http.server) e validar:
+Header se transforma ao rolar; menu mobile abre/fecha sem travar.
+Carrossel de depoimentos tem fade lateral e pausa ao hover.
+Reveals aparecem suaves, sem "pop" ou jitter.
+Seções de unidades mostram claramente os dois endereços e CTAs.
+Lighthouse (Chrome DevTools, modo mobile): mirar Performance ≥ 90, SEO 100, Acessibilidade ≥ 95, Best Practices ≥ 95.
+Validar JSON-LD em https://validator.schema.org/ (colar o <script type="application/ld+json">).
+Testar prefers-reduced-motion (DevTools → Rendering) — animações devem desaparecer.
+Verificar com leitor de tela básico (NVDA/VoiceOver) que landmarks (header, main, nav, footer) estão corretos e que apenas um h1 existe.
+Mobile: testar em viewport 375px — composição editorial deve continuar elegante (não quebrar em cards genéricos).
+Observações para execução
+Não usar imagens reais — todos os src apontam para assets/… como placeholders documentados em comentários HTML.
+WhatsApp Uberaba: link https://wa.me/553433520661. Uberlândia: deixar href="#" com comentário <!-- TODO: telefone Uberlândia -->.
+Manter script.js < 6KB (sem libs além de GSAP/Lenis via CDN).
+styles.css organizado em blocos comentados: /* tokens */, /* base */, /* header */, /* hero */, etc.
